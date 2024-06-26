@@ -1,6 +1,10 @@
 ﻿#include <iostream>
+#include <string>
+#include "generationNickname.h";
+
+using namespace std;
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    cout << genNickname("bagauttin");
 }
