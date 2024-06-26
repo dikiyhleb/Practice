@@ -6,5 +6,5 @@ using namespace std;
 
 int main()
 {
-    cout << genNickname("bagauttin");
+    cout << genNickname("Bobryatina");
 }
