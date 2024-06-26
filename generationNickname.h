@@ -28,6 +28,26 @@ string genNickname(string defaultNick) {
 		case 'o':
 			defaultNick[i] = '0';
 			break;
+		case 'E':
+		case 'e':
+			defaultNick[i] = '3';
+			break;
+		case 'L':
+		case 'l':
+			defaultNick[i] = '1';
+			break;
+		case 'S':
+		case 's':
+			defaultNick[i] = '5';
+			break;
+		case 'T':
+		case 't':
+			defaultNick[i] = '7';
+			break;
+		case 'Z':
+		case 'z':
+			defaultNick[i] = '2';
+			break;
 		default:
 			break;
 		}
