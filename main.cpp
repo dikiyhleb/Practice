@@ -1,6 +1,6 @@
 ﻿#include <iostream>
 #include <string>
-#include "generationNickname.h";
+#include "generationNickname.h"
 #include "generationPassword.h"
 
 using namespace std;
