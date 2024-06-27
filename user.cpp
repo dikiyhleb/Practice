@@ -36,7 +36,7 @@ string user::createUserPasswordByGenerating() {
 	//userPassword = generationPassword::generate();
 	//return userPassword;
 }
-
+ // Изменение данных пользователя
 void user::editUserInfo() {
 	int x1;
 	string  userNickname;
@@ -83,19 +83,19 @@ void user::editUserInfo() {
 		break;
 	}
 }
-
+ // Вывод данных пользователя
 void user::displayUserInfo() {
 	cout << "Имя пользователя: " << userNickname << endl;
 	cout << "Пароль: " << userPassword << endl;
 }
 
+// Меню авторизации
 void user::displayAuthMenu() {
 	string nickname, password;
 	cout << "Введите имя вашего пользователя: ";
 	getline(cin,nickname);
 	cout << "Введите ваш пароль: ";
 	getline(cin, password);
-
 	if (nickname == userNickname && password == userPassword) {
 		cout << "Вход выполнен. Добро пожаловать, " << userNickname << "!\n";
 	}
@@ -104,6 +104,6 @@ void user::displayAuthMenu() {
 	}
 }
 
+// Меню регистрации
 void user::displayRegistrationMenu() {
-	
 }
