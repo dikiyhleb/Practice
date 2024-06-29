@@ -7,12 +7,12 @@ using namespace std;
 
 int main()
 {
-    cout << genNickname("Bobryatina");
+    cout << genNicknameByBase() << endl;
 
     //Генерация пароля
-    generationPassword genPass;                                       //
-    std::string password = genPass.generate();                        //Не компилируется
-    std::cout << "Generated password: " << password << std::endl;     //
+    //generationPassword genPass;                                       //
+    //std::string password = genPass.generate();                        //Не компилируется
+    //std::cout << "Generated password: " << password << std::endl;     //
 
     //Проверка шифровки и дешифровки
     cout << "Enter test password: " << endl;
