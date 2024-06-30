@@ -23,7 +23,7 @@ string genNicknameByBase() {
 		if (!lines.empty()) {
 			srand(time(0));
 			int randomIndex = rand() % lines.size();
-			return lines[randomIndex];
+			return lines[randomIndex] + lines[rand() % lines.size()];
 		}
 		else {
 			return "File is empty.";
