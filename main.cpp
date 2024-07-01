@@ -11,25 +11,25 @@ int main()
     generationPassword genPass;
     int x;
     while (true) {
-        cout << " РЕГИСТРАЦИЯ";
-        cout << "1-Сгенерировать никнейм" << '\n';
-        cout << "2-Сгенерировать пароль" << '\n';
-        cout << "3-Выход" << '\n';
+        cout << " РЕГИСТРАЦИЯ" << '\n';
+        cout << "1 - Сгенерировать никнейм" << '\n';
+        cout << "2 - Сгенерировать пароль" << '\n';
+        cout << "3 - Выход" << '\n';
 
         cin >> x;
 
         switch (x) {
         case 1: {
-            cout << " Вариация генераций ";
-            cout << "1 вариант" << genNicknameByBase();
-            cout << "2 вариант" << genNicknameByBase();
-            cout << "3 вариант" << genNicknameByBase();
+            cout << " Вариация генераций " << '\n';
+            cout << "1 вариант: " << genNicknameByBase() << '\n';
+            cout << "2 вариант: " << genNicknameByBase() << '\n';
+            cout << "3 вариант: " << genNicknameByBase() << '\n';
             break;
         }
         case 2: {
-            cout << "ваш пароль привязанный к аккунту запишите его на листочке";
-            std::string password = encrypt(genPass.generate());
-            std::cout << "Generated password: " << password << std::endl;
+            cout << "Ваш пароль привязанный к аккунту запишите его на листочке: ";
+            std::string password = genPass.generate();
+            std::cout << password << std::endl;
             break;
         }
 
