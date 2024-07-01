@@ -8,14 +8,15 @@ class user {
 private:
 	std::string userNickname;
 	std::string userPassword;
+	std::vector <user> users;
 public:
 	user();
+	user(const std::string& userNickname, const std::string& userPassword);
 	std::string createUserNicknameByYourself();
 	std::string createUserNicknameByGenerating();
 	std::string createUserPasswordByYourself();
 	std::string createUserPasswordByGenerating();
-	void editUserInfo();
-	void displayUserInfo();
+	void displayUserInfo(std::vector <user>& users);
 	void displayAuthMenu();
 	void displayRegistrationMenu();
 };
