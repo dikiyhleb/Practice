@@ -1,6 +1,7 @@
 #include "user.h"
 #include "generationNickname.h"
 #include "generationPassword.h"
+//setlocale(LC_ALL, "RU");
 using namespace std;
 user::user() {}
 user::user(const string& userNickname, const string& userPassword) {
@@ -66,7 +67,7 @@ string user::createUserPasswordByGenerating() {
 	generationPassword genPass;
 	string userPassword;
 	userPassword = genPass.generate();
-	cout << "Пароль создан!" << endl;
+	cout << "Пароль создан! Ваш пароль: " << userPassword << endl;
 	return userPassword;
 }
  
@@ -74,10 +75,11 @@ string user::createUserPasswordByGenerating() {
 void user::displayUserInfo(vector <user>& users) {
 	for (const auto& user : users) {
 		cout << "Имя пользователя: " << userNickname << endl;
-		if (userPassword.empty()) {
+		return;
+	/*	if (userPassword.empty()) {
 			break;
 		}
-		cout << "Пароль: " << userPassword << endl << endl;
+		cout << "Пароль: " << userPassword << endl << endl; */
 	}
 }
 
@@ -98,9 +100,8 @@ void user::displayAuthMenu() {
 
 // Меню регистрации
 void user::displayRegistrationMenu() {
-	cout << "..........Меню создания пользователя.........." << endl;
-	cout << "Создайте имя пользвателя" << endl;
-	cout << "Варианты создания имени пользователя:" << endl << "1. Самостоятельно" << endl << "2. С помощью генерации имен" << endl;
+	cout << "\n..........Меню создания пользователя.........." << endl;
+	cout << "Варианты создания имени пользователя:" << endl << "1. Самостоятельно" << endl << "2. С помощью генерации имен" << endl << "3. Выход" << endl;
 	int choice;
 	cout << "Выберите удобный вам вариант: " << endl;
 	cin >> choice;
@@ -112,12 +113,14 @@ void user::displayRegistrationMenu() {
 	case 2:
 		createUserNicknameByGenerating();
 		break;
+	case 3:
+		break;
 	default:
 		cout << "Неверный выбор!" << endl;
 		break;
 	}
 	cout << "Создайте пароль" << endl;
-	cout << "Варианты создания пароля:" << endl << "1. Самостоятельно" << endl << "2. С помощью генерации пароля" << endl;
+	cout << "Варианты создания пароля:" << endl << "1. Самостоятельно" << endl << "2. С помощью генерации пароля" << endl << "3. Выход" << endl;
 	int choice1;
 	cout << "Выберите удобный вам вариант: " << endl;
 	cin >> choice1;
@@ -128,6 +131,8 @@ void user::displayRegistrationMenu() {
 		break;
 	case 2:
 		createUserPasswordByGenerating();
+		break;
+	case 3:
 		break;
 	default:
 		cout << "Неверный выбор!" << endl;

@@ -1,11 +1,14 @@
 #include "user.h"
 #include <fstream>
+#include <Windows.h>
 #include "generationNickname.h"
 #include "generationPassword.h"
 using namespace std;
 vector<user> users;
 
 int main() {
+    setlocale(LC_ALL, "rus");
+    SetConsoleCP(1251);
     user currentUser;
     int choice;
 
