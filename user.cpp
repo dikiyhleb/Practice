@@ -1,6 +1,7 @@
 #include "user.h"
 #include "generationNickname.h"
 #include "generationPassword.h"
+using namespace std;
 user::user() {}
 user::user(const string& userNickname, const string& userPassword) {
 	this->userNickname = userNickname;
@@ -14,7 +15,7 @@ string user::createUserNicknameByYourself() {
 	getline(cin, userNickname);
 	if (userNickname.empty()) {
 		cout << "Имя пользователя не может быть пустым!" << endl;
-		return;
+		return ""; 
 	}
 	cout << "Имя пользователя создано!" << endl;
 	return userNickname;

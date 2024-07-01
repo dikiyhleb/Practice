@@ -1,47 +1,37 @@
-#include <iostream>
-#include <string>
+#include "user.h"
+#include <fstream>
 #include "generationNickname.h"
 #include "generationPassword.h"
-#include "encryption.h"
 using namespace std;
+vector<user> users;
 
-int main()
-{
-    setlocale(LC_ALL, "Russian");
-    generationPassword genPass;
-    int x;
+int main() {
+    user currentUser;
+    int choice;
+
     while (true) {
-        cout << " РЕГИСТРАЦИЯ" << '\n';
-        cout << "1 - Сгенерировать никнейм" << '\n';
-        cout << "2 - Сгенерировать пароль" << '\n';
-        cout << "3 - Выход" << '\n';
+        cout << "1. Регистрация\n2. Авторизация\n3. Показать всех пользователей\n4. Выход\n";
+        cout << "Выберите опцию: ";
+        cin >> choice;
+        cin.ignore(); 
 
-        cin >> x;
-
-        switch (x) {
-        case 1: {
-            cout << " Вариация генераций " << '\n';
-            cout << "1 вариант: " << genNicknameByBase() << '\n';
-            cout << "2 вариант: " << genNicknameByBase() << '\n';
-            cout << "3 вариант: " << genNicknameByBase() << '\n';
+        switch (choice) {
+        case 1:
+            currentUser.displayRegistrationMenu();
             break;
-        }
-        case 2: {
-            cout << "Ваш пароль привязанный к аккунту запишите его на листочке: ";
-            std::string password = genPass.generate();
-            std::cout << password << std::endl;
+        case 2:
+            currentUser.displayAuthMenu();
             break;
-        }
-
-
-        case 3: {
+        case 3:
+            currentUser.displayUserInfo(users);
+            break;
+        case 4:
             return 0;
         default:
-            cout << "Некорректный выбор" << endl;
+            cout << "Неверный выбор, попробуйте снова.\n";
             break;
         }
-        }
-
-        return 0;
     }
+
+    return 0;
 }
