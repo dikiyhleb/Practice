@@ -17,7 +17,7 @@ public:
 	std::string createUserPasswordByYourself();
 	std::string createUserPasswordByGenerating();
 	void displayUserInfo(std::vector <user>& users);
-	void displayAuthMenu();
+	void displayAuthMenu(std::vector <user>& users);
 	void displayRegistrationMenu();
 };
 

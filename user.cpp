@@ -12,13 +12,12 @@ user::user(const string& userNickname, const string& userPassword) {
 // Создание имени пользователя самостоятельно
 string user::createUserNicknameByYourself() {
 	string userNickname;
-	cout << "Введите имя пользователя на английском языке:" << endl;
-	getline(cin, userNickname);
+	cout << "Введите имя пользователя на английском языке: ";
+	cin >> userNickname;
 	if (userNickname.empty()) {
 		cout << "Имя пользователя не может быть пустым!" << endl;
 		return ""; 
 	}
-	cout << "Имя пользователя создано!" << endl;
 	return userNickname;
 }
 
@@ -26,12 +25,11 @@ string user::createUserNicknameByYourself() {
 string user::createUserNicknameByGenerating() {
 	string userName;
 	string userNickname;
-	cout << "Введите ваше имя на английском языке, чтобы имя пользователя сгенерировалось случайным образом:" << endl;
-	getline(cin, userName);
-	cout << " Вариация генераций " << '\n';
-	cout << "1 вариант: " << genNicknameByBase() << '\n';
-	cout << "2 вариант: " << genNicknameByBase() << '\n';
-	cout << "3 вариант: " << genNicknameByBase() << '\n';
+	cin >> userName;
+	cout << "Вариация генераций: " << '\n';
+	cout << "1. " << genNicknameByBase() << '\n';
+	cout << "2. " << genNicknameByBase() << '\n';
+	cout << "3. " << genNicknameByBase() << '\n';
 	int choice;
 	cout << "Выберите номер варианта имени пользователя (1-3): ";
 	cin >> choice;
@@ -49,16 +47,16 @@ string user::createUserNicknameByGenerating() {
 		cout << "Неверный выбор. Имя пользователя не создано." << endl;
 		break;
 	}
-	cout << "Имя пользователя создано!" << endl;
+	cout << "Имя пользователя задано!\n" << endl;
 	return userNickname;
 }
 
 // Создание пароля пользователя самостоятельно
 string user::createUserPasswordByYourself() {
 	string userPassword;
-	cout << "Создайте пароль для вашего пользователя" << endl;
-	getline(cin, userPassword);
-	cout << "Пароль создан!" << endl;
+	cout << "Придумайте пароль: " << endl;
+	cin >> userPassword;
+	cout << "Пароль создан!\n" << endl;
 	return userPassword;
 }
 
@@ -73,31 +71,45 @@ string user::createUserPasswordByGenerating() {
  
  // Вывод данных пользователя
 void user::displayUserInfo(vector <user>& users) {
-	for (const auto& user : users) {
-		cout << "Имя пользователя: " << userNickname << endl;
-		return;
+	for (const user& User : users) {
+		cout << "Имя пользователя: " << User.userNickname << endl;
 	/*	if (userPassword.empty()) {
 			break;
 		}
 		cout << "Пароль: " << userPassword << endl << endl; */
 	}
+	return;
 }
 
 // Меню авторизации
-void user::displayAuthMenu() {
+void user::displayAuthMenu(vector<user>& users) {
 	string nickname, password;
 	cout << "Введите имя вашего пользователя: " << endl;
-	getline(cin,nickname);
-	cout << "Введите ваш пароль: " << endl;
-	getline(cin, password);
-	if (nickname == userNickname && password == userPassword) {
-		cout << "Вход выполнен. Добро пожаловать, " << userNickname << "!\n";
+	cin >> nickname;
+
+	bool userFound = false;
+
+	for (const auto& User : users) {
+		if (User.userNickname == nickname) {
+			userFound = true;
+
+			cout << "Введите ваш пароль: " << endl;
+			cin >> password;
+
+			if (User.userPassword == password) {
+				cout << "Вход выполнен. Добро пожаловать, " << User.userNickname << "!\n";
+			}
+			else {
+				cout << "Вход не выполнен. Неверное имя или пароль!\n";
+			}
+			break;
+		}
 	}
-	else {
-		cout << "Вход не выполнен. Неверное имя или пароль!\n";
+
+	if (!userFound) {
+		cout << "Пользователь с таким именем не найден! " << endl;
 	}
 }
-
 // Меню регистрации
 void user::displayRegistrationMenu() {
 	cout << "\n..........Меню создания пользователя.........." << endl;
@@ -122,7 +134,7 @@ void user::displayRegistrationMenu() {
 	cout << "Создайте пароль" << endl;
 	cout << "Варианты создания пароля:" << endl << "1. Самостоятельно" << endl << "2. С помощью генерации пароля" << endl << "3. Выход" << endl;
 	int choice1;
-	cout << "Выберите удобный вам вариант: " << endl;
+	cout << "Выберите удобный вам вариант: ";
 	cin >> choice1;
 	switch (choice1)
 	{
@@ -132,12 +144,10 @@ void user::displayRegistrationMenu() {
 	case 2:
 		createUserPasswordByGenerating();
 		break;
-	case 3:
-		break;
 	default:
 		cout << "Неверный выбор!" << endl;
 		break;
 	}
 	users.push_back(user(userNickname, userPassword));
-	cout << "Пользователь успешно создан!" << endl;
+	cout << "Аккаунт успешно создан!\n" << endl;
 }
