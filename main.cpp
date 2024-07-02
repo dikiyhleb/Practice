@@ -7,6 +7,7 @@ using namespace std;
 vector<user> users;
 
 int main() {
+    setlocale(LC_ALL, "ru");
     user currentUser;
     int choice;
 

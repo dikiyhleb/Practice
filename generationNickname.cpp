@@ -23,7 +23,7 @@ std::string genNicknameByBase() {
                 initialized = true;
             }
             int randomIndex = std::rand() % lines.size();
-            return lines[randomIndex] + lines[std::rand() % lines.size()];
+            return lines[randomIndex] + randInt(0, 999);
         }
         else {
             return "File is empty.";
@@ -34,4 +34,11 @@ std::string genNicknameByBase() {
     }
 
     return "GeneratedNickname"; // Default return value, although ideally not reached.
+}
+
+std::string randInt(int start, int end)
+{
+    int randomInt = rand() % (end - start + 1) + start;
+    std::string result = std::to_string(randomInt);
+    return result;
 }

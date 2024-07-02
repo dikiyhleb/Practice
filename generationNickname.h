@@ -5,5 +5,6 @@
 #include <string>
 
 std::string genNicknameByBase();
+std::string randInt(int start, int end);
 
 #endif
