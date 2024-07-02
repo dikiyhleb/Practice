@@ -18,7 +18,7 @@ public:
 	std::string createUserPasswordByGenerating();
 	void displayUserInfo(std::vector <user>& users);
 	void displayAuthMenu(std::vector <user>& users);
-	void displayRegistrationMenu();
+	void displayRegistrationMenu(std::vector<user>& users);
 };
 
 #endif

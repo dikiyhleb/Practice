@@ -7,23 +7,23 @@ using namespace std;
 vector<user> users;
 
 int main() {
-    setlocale(LC_ALL, "rus");
-    SetConsoleCP(1251);
     user currentUser;
     int choice;
 
     while (true) {
+        // Название менюшки
         cout << "1. Регистрация\n2. Авторизация\n3. Показать всех пользователей\n4. Выход\n";
         cout << "Выберите опцию: ";
         cin >> choice;
         cin.ignore(); 
-
+        // Сделать функции класса статическими
         switch (choice) {
         case 1:
-            currentUser.displayRegistrationMenu();
+            currentUser.displayRegistrationMenu(users);
+            users.push_back(currentUser);
             break;
         case 2:
-            currentUser.displayAuthMenu();
+            currentUser.displayAuthMenu(users);
             break;
         case 3:
             currentUser.displayUserInfo(users);

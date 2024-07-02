@@ -14,6 +14,7 @@ string user::createUserNicknameByYourself() {
 	string userNickname;
 	cout << "Введите имя пользователя на английском языке: ";
 	cin >> userNickname;
+	cout << endl;
 	if (userNickname.empty()) {
 		cout << "Имя пользователя не может быть пустым!" << endl;
 		return ""; 
@@ -54,9 +55,9 @@ string user::createUserNicknameByGenerating() {
 // Создание пароля пользователя самостоятельно
 string user::createUserPasswordByYourself() {
 	string userPassword;
-	cout << "Придумайте пароль: " << endl;
+	cout << "Придумайте пароль: ";
 	cin >> userPassword;
-	cout << "Пароль создан!\n" << endl;
+	cout << "Пароль задан!\n" << endl; 
 	return userPassword;
 }
 
@@ -84,7 +85,7 @@ void user::displayUserInfo(vector <user>& users) {
 // Меню авторизации
 void user::displayAuthMenu(vector<user>& users) {
 	string nickname, password;
-	cout << "Введите имя вашего пользователя: " << endl;
+	cout << "Введите имя вашего пользователя: ";
 	cin >> nickname;
 
 	bool userFound = false;
@@ -111,11 +112,11 @@ void user::displayAuthMenu(vector<user>& users) {
 	}
 }
 // Меню регистрации
-void user::displayRegistrationMenu() {
+void user::displayRegistrationMenu(vector <user>& users) {
 	cout << "\n..........Меню создания пользователя.........." << endl;
 	cout << "Варианты создания имени пользователя:" << endl << "1. Самостоятельно" << endl << "2. С помощью генерации имен" << endl << "3. Выход" << endl;
 	int choice;
-	cout << "Выберите удобный вам вариант: " << endl;
+	cout << "Выберите удобный вам вариант: ";
 	cin >> choice;
 	switch (choice)
 	{
@@ -131,8 +132,8 @@ void user::displayRegistrationMenu() {
 		cout << "Неверный выбор!" << endl;
 		break;
 	}
-	cout << "Создайте пароль" << endl;
-	cout << "Варианты создания пароля:" << endl << "1. Самостоятельно" << endl << "2. С помощью генерации пароля" << endl << "3. Выход" << endl;
+	cout << "Создайте пароль" << endl; // Перефразировать!
+	cout << "Варианты создания пароля:" << endl << "1. Самостоятельно" << endl << "2. С помощью генерации пароля" << endl;
 	int choice1;
 	cout << "Выберите удобный вам вариант: ";
 	cin >> choice1;
