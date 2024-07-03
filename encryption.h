@@ -3,7 +3,7 @@
 #include <string>
 using namespace std;
 
-//Шифровка
+//РЁРёС„СЂРѕРІР°РЅРёРµ
 string encrypt(string input) {
     const int number = input.size();
     string result = "";
@@ -15,7 +15,7 @@ string encrypt(string input) {
     return result;
 }
 
-//Дешифровка
+//Р”РµС€РёС„СЂРѕРІР°РЅРёРµ
 string decrypt(string input) {
     const int number = input.size();
     string result = "";
