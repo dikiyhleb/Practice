@@ -1,24 +1,27 @@
-#ifndef USER_H
-#define USER_H
+#pragma once
 #include <iostream>
 #include <vector>
 #include <string>
+#include <locale>
+#include <Windows.h>
+using namespace std;
 
 class user {
-private:
-	std::string userNickname;
-	std::string userPassword;
-	std::vector <user> users;
 public:
-	user();
-	user(const std::string& userNickname, const std::string& userPassword);
-	std::string createUserNicknameByYourself();
-	std::string createUserNicknameByGenerating();
-	std::string createUserPasswordByYourself();
-	std::string createUserPasswordByGenerating();
-	void displayUserInfo(std::vector <user>& users);
-	void displayAuthMenu(std::vector <user>& users);
-	void displayRegistrationMenu(std::vector<user>& users);
-};
+    user();
+    user(const string& userNickname, const string& userPassword);
 
-#endif
+    string createUserNicknameByYourself();
+    string createUserNicknameByGenerating();
+    string createUserPasswordByYourself();
+    string createUserPasswordByGenerating();
+
+    void displayUserInfo(vector<user>& users);
+    void displayAuthMenu(vector<user>& users);
+    void displayRegistrationMenu(vector<user>& users);
+    void handleUserChoice(int choice, vector<user>& users); // Новый метод
+
+private:
+    string userNickname;
+    string userPassword;
+};

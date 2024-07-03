@@ -1,40 +1,27 @@
 #include "user.h"
-#include <fstream>
+#include <iostream>
+#include <locale>
 #include <Windows.h>
-#include "generationNickname.h"
-#include "generationPassword.h"
 using namespace std;
+
 vector<user> users;
 
 int main() {
-    setlocale(LC_ALL, "ru");
+    setlocale(LC_ALL, "rus");
+    SetConsoleCP(1251);
+    SetConsoleOutputCP(1251);
+
     user currentUser;
     int choice;
 
     while (true) {
-        // –ù–∞–∑–≤–∞–Ω–∏–µ –º–µ–Ω—é—à–∫–∏
-        cout << "1. –†–µ–≥–∏—Å—Ç—Ä–∞—Ü–∏—è\n2. –ê–≤—Ç–æ—Ä–∏–∑–∞—Ü–∏—è\n3. –ü–æ–∫–∞–∑–∞—Ç—å –≤—Å–µ—Ö –ø–æ–ª—å–∑–æ–≤–∞—Ç–µ–ª–µ–π\n4. –í—ã—Ö–æ–¥\n";
-        cout << "–í—ã–±–µ—Ä–∏—Ç–µ –æ–ø—Ü–∏—é: ";
+        cout << "Û˜ÂÚÌ‡ˇ Á‡ÔËÒ¸\n";
+        cout << "1. –Â„ËÒÚ‡ˆËˇ\n2. ¿‚ÚÓËÁ‡ˆËˇ\n3. œÓÍ‡Á‡Ú¸ ‚ÒÂı ÔÓÎ¸ÁÓ‚‡ÚÂÎÂÈ\n4. ¬˚ıÓ‰\n";
+        cout << "¬˚·ÂËÚÂ ÓÔˆË˛: ";
         cin >> choice;
-        cin.ignore(); 
-        // –°–¥–µ–ª–∞—Ç—å —Ñ—É–Ω–∫—Ü–∏–∏ –∫–ª–∞—Å—Å–∞ —Å—Ç–∞—Ç–∏—á–µ—Å–∫–∏–º–∏
-        switch (choice) {
-        case 1:
-            currentUser.displayRegistrationMenu(users);
-            users.push_back(currentUser);
-            break;
-        case 2:
-            currentUser.displayAuthMenu(users);
-            break;
-        case 3:
-            currentUser.displayUserInfo(users);
-            break;
-        case 4:
-            return 0;
-        default:
-            cout << "–ù–µ–≤–µ—Ä–Ω—ã–π –≤—ã–±–æ—Ä, –ø–æ–ø—Ä–æ–±—É–π—Ç–µ —Å–Ω–æ–≤–∞.\n";
-            break;
-        }
+        cin.ignore();
+
+        currentUser.handleUserChoice(choice, users);
     }
 
     return 0;

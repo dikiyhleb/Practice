@@ -16,7 +16,7 @@ public:
         : charset("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~")
     {
         srand(time(0));
-        length = rand() % 5 + 8; // СЃР»СѓС‡Р°Р№РЅР°СЏ РґР»РёРЅР° РїР°СЂРѕР»СЏ РѕС‚ 8 РґРѕ 12 СЃРёРјРІРѕР»РѕРІ
+        length = rand() % 5 + 8; // случайная длина пароля от 8 до 12 символов
     }
 
     std::string generate()
