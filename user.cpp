@@ -14,11 +14,11 @@ string user::createUserNicknameByYourself() {
     setlocale(LC_ALL, "Russian");
     SetConsoleCP(1251);
     string userNickname;
-    cout << "Ââåäèòå èìÿ ïîëüçîâàòåëÿ íà àíãëèéñêîì ÿçûêå: ";
+    cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð¸Ð¼Ñ Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»Ñ Ð½Ð° Ð°Ð½Ð³Ð»Ð¸Ð¹ÑÐºÐ¾Ð¼ ÑÐ·Ñ‹ÐºÐµ: ";
     cin >> userNickname;
     cout << endl;
     if (userNickname.empty()) {
-        cout << "Èìÿ ïîëüçîâàòåëÿ íå ìîæåò áûòü ïóñòûì!" << endl;
+        cout << "Ð˜Ð¼Ñ Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»Ñ Ð½Ðµ Ð¼Ð¾Ð¶ÐµÑ‚ Ð±Ñ‹Ñ‚ÑŒ Ð¿ÑƒÑÑ‚Ñ‹Ð¼!" << endl;
         return "";
     }
     return userNickname;
@@ -28,7 +28,7 @@ string user::createUserNicknameByGenerating() {
     setlocale(LC_ALL, "Russian");
     SetConsoleCP(1251);
     string userNickname;
-    cout << "Âàðèàöèÿ ãåíåðàöèé:\n";
+    cout << "Ð’Ð°Ñ€Ð¸Ð°Ñ†Ð¸Ñ Ð³ÐµÐ½ÐµÑ€Ð°Ñ†Ð¸Ð¹:\n";
     string nick1 = genNicknameByBase();
     string nick2 = genNicknameByBase();
     string nick3 = genNicknameByBase();
@@ -36,7 +36,7 @@ string user::createUserNicknameByGenerating() {
     cout << "2. " << nick2 << '\n';
     cout << "3. " << nick3 << '\n';
     int choice;
-    cout << "Âûáåðèòå íîìåð âàðèàíòà èìåíè ïîëüçîâàòåëÿ (1-3): ";
+    cout << "Ð’Ñ‹Ð±ÐµÑ€Ð¸Ñ‚Ðµ Ð½Ð¾Ð¼ÐµÑ€ Ð²Ð°Ñ€Ð¸Ð°Ð½Ñ‚Ð° Ð¸Ð¼ÐµÐ½Ð¸ Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»Ñ (1-3): ";
     cin >> choice;
     switch (choice) {
     case 1:
@@ -49,10 +49,10 @@ string user::createUserNicknameByGenerating() {
         userNickname = nick3  ;
         break;
     default:
-        cout << "Íåâåðíûé âûáîð. Èìÿ ïîëüçîâàòåëÿ íå ñîçäàíî." << endl;
+        cout << "ÐÐµÐ²ÐµÑ€Ð½Ñ‹Ð¹ Ð²Ñ‹Ð±Ð¾Ñ€. Ð˜Ð¼Ñ Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»Ñ Ð½Ðµ ÑÐ¾Ð·Ð´Ð°Ð½Ð¾." << endl;
         break;
     }
-    cout << "Èìÿ ïîëüçîâàòåëÿ çàäàíî!\n" << endl;
+    cout << "Ð˜Ð¼Ñ Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»Ñ Ð·Ð°Ð´Ð°Ð½Ð¾!\n" << endl;
     return userNickname;
 }
 
@@ -60,9 +60,9 @@ string user::createUserPasswordByYourself() {
     setlocale(LC_ALL, "Russian");
     SetConsoleCP(1251);
     string userPassword;
-    cout << "Ïðèäóìàéòå ïàðîëü: ";
+    cout << "ÐŸÑ€Ð¸Ð´ÑƒÐ¼Ð°Ð¹Ñ‚Ðµ Ð¿Ð°Ñ€Ð¾Ð»ÑŒ: ";
     cin >> userPassword;
-    cout << "Ïàðîëü çàäàí!\n" << endl;
+    cout << "ÐŸÐ°Ñ€Ð¾Ð»ÑŒ Ð·Ð°Ð´Ð°Ð½!\n" << endl;
     return userPassword;
 }
 
@@ -71,7 +71,7 @@ string user::createUserPasswordByGenerating() {
     SetConsoleCP(1251);
     generationPassword genPass;
     string userPassword = genPass.generate();
-    cout << "Ïàðîëü ñîçäàí! Âàø ïàðîëü: " << userPassword << endl;
+    cout << "ÐŸÐ°Ñ€Ð¾Ð»ÑŒ ÑÐ¾Ð·Ð´Ð°Ð½! Ð’Ð°Ñˆ Ð¿Ð°Ñ€Ð¾Ð»ÑŒ: " << userPassword << endl;
     return userPassword;
 }
 
@@ -79,9 +79,9 @@ void user::displayUserInfo(vector<user>& users) {
     setlocale(LC_ALL, "Russian");
     SetConsoleCP(1251);
     for (const user& User : users) {
-        cout << "Èìÿ ïîëüçîâàòåëÿ: " << User.userNickname << endl;
-        // Åñëè íóæíî ïîêàçûâàòü ïàðîëü:
-        // cout << "Ïàðîëü: " << User.userPassword << endl;
+        cout << "Ð˜Ð¼Ñ Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»Ñ: " << User.userNickname << endl;
+        // Ð•ÑÐ»Ð¸ Ð½ÑƒÐ¶Ð½Ð¾ Ð¿Ð¾ÐºÐ°Ð·Ñ‹Ð²Ð°Ñ‚ÑŒ Ð¿Ð°Ñ€Ð¾Ð»ÑŒ:
+        // cout << "ÐŸÐ°Ñ€Ð¾Ð»ÑŒ: " << User.userPassword << endl;
     }
 }
 
@@ -89,7 +89,7 @@ void user::displayAuthMenu(vector<user>& users) {
     setlocale(LC_ALL, "Russian");
     SetConsoleCP(1251);
     string nickname, password;
-    cout << "Ââåäèòå èìÿ âàøåãî ïîëüçîâàòåëÿ: ";
+    cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð¸Ð¼Ñ Ð²Ð°ÑˆÐµÐ³Ð¾ Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»Ñ: ";
     cin >> nickname;
 
     bool userFound = false;
@@ -97,31 +97,31 @@ void user::displayAuthMenu(vector<user>& users) {
     for (const auto& User : users) {
         if (User.userNickname == nickname) {
             userFound = true;
-            cout << "Ââåäèòå âàø ïàðîëü: ";
+            cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð²Ð°Ñˆ Ð¿Ð°Ñ€Ð¾Ð»ÑŒ: ";
             cin >> password;
 
             if (User.userPassword == password) {
-                cout << "Âõîä âûïîëíåí. Äîáðî ïîæàëîâàòü, " << User.userNickname << "!\n";
+                cout << "Ð’Ñ…Ð¾Ð´ Ð²Ñ‹Ð¿Ð¾Ð»Ð½ÐµÐ½. Ð”Ð¾Ð±Ñ€Ð¾ Ð¿Ð¾Ð¶Ð°Ð»Ð¾Ð²Ð°Ñ‚ÑŒ, " << User.userNickname << "!\n";
             }
             else {
-                cout << "Âõîä íå âûïîëíåí. Íåâåðíîå èìÿ èëè ïàðîëü!\n";
+                cout << "Ð’Ñ…Ð¾Ð´ Ð½Ðµ Ð²Ñ‹Ð¿Ð¾Ð»Ð½ÐµÐ½. ÐÐµÐ²ÐµÑ€Ð½Ð¾Ðµ Ð¸Ð¼Ñ Ð¸Ð»Ð¸ Ð¿Ð°Ñ€Ð¾Ð»ÑŒ!\n";
             }
             break;
         }
     }
 
     if (!userFound) {
-        cout << "Ïîëüçîâàòåëü ñ òàêèì èìåíåì íå íàéäåí! " << endl;
+        cout << "ÐŸÐ¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»ÑŒ Ñ Ñ‚Ð°ÐºÐ¸Ð¼ Ð¸Ð¼ÐµÐ½ÐµÐ¼ Ð½Ðµ Ð½Ð°Ð¹Ð´ÐµÐ½! " << endl;
     }
 }
 
 void user::displayRegistrationMenu(vector<user>& users) {
     setlocale(LC_ALL, "Russian");
     SetConsoleCP(1251);
-    cout << "\n..........Ìåíþ ñîçäàíèÿ ïîëüçîâàòåëÿ..........\n";
-    cout << "Âàðèàíòû ñîçäàíèÿ èìåíè ïîëüçîâàòåëÿ:\n1. Ñàìîñòîÿòåëüíî\n2. Ñ ïîìîùüþ ãåíåðàöèè èìåí\n3. Âûõîä\n";
+    cout << "\n..........ÐœÐµÐ½ÑŽ ÑÐ¾Ð·Ð´Ð°Ð½Ð¸Ñ Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»Ñ..........\n";
+    cout << "Ð’Ð°Ñ€Ð¸Ð°Ð½Ñ‚Ñ‹ ÑÐ¾Ð·Ð´Ð°Ð½Ð¸Ñ Ð¸Ð¼ÐµÐ½Ð¸ Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»Ñ:\n1. Ð¡Ð°Ð¼Ð¾ÑÑ‚Ð¾ÑÑ‚ÐµÐ»ÑŒÐ½Ð¾\n2. Ð¡ Ð¿Ð¾Ð¼Ð¾Ñ‰ÑŒÑŽ Ð³ÐµÐ½ÐµÑ€Ð°Ñ†Ð¸Ð¸ Ð¸Ð¼ÐµÐ½\n3. Ð’Ñ‹Ñ…Ð¾Ð´\n";
     int choice;
-    cout << "Âûáåðèòå óäîáíûé âàì âàðèàíò: ";
+    cout << "Ð’Ñ‹Ð±ÐµÑ€Ð¸Ñ‚Ðµ ÑƒÐ´Ð¾Ð±Ð½Ñ‹Ð¹ Ð²Ð°Ð¼ Ð²Ð°Ñ€Ð¸Ð°Ð½Ñ‚: ";
     cin >> choice;
     string userNickname, userPassword;
     switch (choice) {
@@ -134,14 +134,14 @@ void user::displayRegistrationMenu(vector<user>& users) {
     case 3:
         return;
     default:
-        cout << "Íåâåðíûé âûáîð!\n";
+        cout << "ÐÐµÐ²ÐµÑ€Ð½Ñ‹Ð¹ Ð²Ñ‹Ð±Ð¾Ñ€!\n";
         return;
     }
 
-    cout << "Ñîçäàéòå ïàðîëü\n";
-    cout << "Âàðèàíòû ñîçäàíèÿ ïàðîëÿ:\n1. Ñàìîñòîÿòåëüíî\n2. Ñ ïîìîùüþ ãåíåðàöèè ïàðîëÿ\n";
+    cout << "Ð¡Ð¾Ð·Ð´Ð°Ð¹Ñ‚Ðµ Ð¿Ð°Ñ€Ð¾Ð»ÑŒ\n";
+    cout << "Ð’Ð°Ñ€Ð¸Ð°Ð½Ñ‚Ñ‹ ÑÐ¾Ð·Ð´Ð°Ð½Ð¸Ñ Ð¿Ð°Ñ€Ð¾Ð»Ñ:\n1. Ð¡Ð°Ð¼Ð¾ÑÑ‚Ð¾ÑÑ‚ÐµÐ»ÑŒÐ½Ð¾\n2. Ð¡ Ð¿Ð¾Ð¼Ð¾Ñ‰ÑŒÑŽ Ð³ÐµÐ½ÐµÑ€Ð°Ñ†Ð¸Ð¸ Ð¿Ð°Ñ€Ð¾Ð»Ñ\n";
     int choice1;
-    cout << "Âûáåðèòå óäîáíûé âàì âàðèàíò: ";
+    cout << "Ð’Ñ‹Ð±ÐµÑ€Ð¸Ñ‚Ðµ ÑƒÐ´Ð¾Ð±Ð½Ñ‹Ð¹ Ð²Ð°Ð¼ Ð²Ð°Ñ€Ð¸Ð°Ð½Ñ‚: ";
     cin >> choice1;
     switch (choice1) {
     case 1:
@@ -151,12 +151,12 @@ void user::displayRegistrationMenu(vector<user>& users) {
         userPassword = createUserPasswordByGenerating();
         break;
     default:
-        cout << "Íåâåðíûé âûáîð!\n";
+        cout << "ÐÐµÐ²ÐµÑ€Ð½Ñ‹Ð¹ Ð²Ñ‹Ð±Ð¾Ñ€!\n";
         return;
     }
 
     users.push_back(user(userNickname, userPassword));
-    cout << "Àêêàóíò óñïåøíî ñîçäàí!\n" << endl;
+    cout << "ÐÐºÐºÐ°ÑƒÐ½Ñ‚ ÑƒÑÐ¿ÐµÑˆÐ½Ð¾ ÑÐ¾Ð·Ð´Ð°Ð½!\n" << endl;
 }
 
 void user::handleUserChoice(int choice, vector<user>& users) {
@@ -173,10 +173,10 @@ void user::handleUserChoice(int choice, vector<user>& users) {
         displayUserInfo(users);
         break;
     case 4:
-        cout << "Âûõîä èç ïðîãðàììû.\n";
-        exit(0); // Çàâåðøåíèå ïðîãðàììû
+        cout << "Ð’Ñ‹Ñ…Ð¾Ð´ Ð¸Ð· Ð¿Ñ€Ð¾Ð³Ñ€Ð°Ð¼Ð¼Ñ‹.\n";
+        exit(0); // Ð—Ð°Ð²ÐµÑ€ÑˆÐµÐ½Ð¸Ðµ Ð¿Ñ€Ð¾Ð³Ñ€Ð°Ð¼Ð¼Ñ‹
     default:
-        cout << "Íåâåðíûé âûáîð. Ïîæàëóéñòà, âûáåðèòå ñíîâà.\n";
+        cout << "ÐÐµÐ²ÐµÑ€Ð½Ñ‹Ð¹ Ð²Ñ‹Ð±Ð¾Ñ€. ÐŸÐ¾Ð¶Ð°Ð»ÑƒÐ¹ÑÑ‚Ð°, Ð²Ñ‹Ð±ÐµÑ€Ð¸Ñ‚Ðµ ÑÐ½Ð¾Ð²Ð°.\n";
         break;
     }
 }
