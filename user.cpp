@@ -28,13 +28,13 @@ string user::createUserNicknameByGenerating() {
     setlocale(LC_ALL, "Russian");
     SetConsoleCP(1251);
     string userNickname;
-    cout << "Вариация генераций:\n";
+    cout << "Варианты имени:" << endl;
     string nick1 = genNicknameByBase();
     string nick2 = genNicknameByBase();
     string nick3 = genNicknameByBase();
-    cout << "1. " << nick1 << '\n';
-    cout << "2. " << nick2 << '\n';
-    cout << "3. " << nick3 << '\n';
+    cout << "1. " << nick1 << endl;
+    cout << "2. " << nick2 << endl;
+    cout << "3. " << nick3 << endl;
     int choice;
     cout << "Выберите номер варианта имени пользователя (1-3): ";
     cin >> choice;
@@ -46,13 +46,12 @@ string user::createUserNicknameByGenerating() {
         userNickname = nick2;
         break;
     case 3:
-        userNickname = nick3  ;
+        userNickname = nick3;
         break;
     default:
-        cout << "Неверный выбор. Имя пользователя не создано." << endl;
+        cout << "Неверный выбор." << endl;
         break;
     }
-    cout << "Имя пользователя задано!\n" << endl;
     return userNickname;
 }
 
@@ -62,7 +61,6 @@ string user::createUserPasswordByYourself() {
     string userPassword;
     cout << "Придумайте пароль: ";
     cin >> userPassword;
-    cout << "Пароль задан!\n" << endl;
     return userPassword;
 }
 
@@ -71,25 +69,26 @@ string user::createUserPasswordByGenerating() {
     SetConsoleCP(1251);
     generationPassword genPass;
     string userPassword = genPass.generate();
-    cout << "Пароль создан! Ваш пароль: " << userPassword << endl;
+    cout << "Пароль: " << userPassword << endl;
     return userPassword;
 }
 
 void user::displayUserInfo(vector<user>& users) {
     setlocale(LC_ALL, "Russian");
     SetConsoleCP(1251);
+    cout << "\nСписок пользователей:" << endl;
     for (const user& User : users) {
         cout << "Имя пользователя: " << User.userNickname << endl;
-        // Если нужно показывать пароль:
-        // cout << "Пароль: " << User.userPassword << endl;
     }
+    cout << endl;
 }
 
 void user::displayAuthMenu(vector<user>& users) {
     setlocale(LC_ALL, "Russian");
     SetConsoleCP(1251);
     string nickname, password;
-    cout << "Введите имя вашего пользователя: ";
+    cout << "\n..........Меню авторизации.........." << endl;
+    cout << "Имя пользователя: ";
     cin >> nickname;
 
     bool userFound = false;
@@ -97,14 +96,14 @@ void user::displayAuthMenu(vector<user>& users) {
     for (const auto& User : users) {
         if (User.userNickname == nickname) {
             userFound = true;
-            cout << "Введите ваш пароль: ";
+            cout << "Пароль: ";
             cin >> password;
 
             if (User.userPassword == password) {
-                cout << "Вход выполнен. Добро пожаловать, " << User.userNickname << "!\n";
+                cout << "Вход выполнен. Добро пожаловать, " << User.userNickname << "!\n" << endl;;
             }
             else {
-                cout << "Вход не выполнен. Неверное имя или пароль!\n";
+                cout << "Вход не выполнен. Неверное имя или пароль!\n" << endl;;
             }
             break;
         }
@@ -118,8 +117,8 @@ void user::displayAuthMenu(vector<user>& users) {
 void user::displayRegistrationMenu(vector<user>& users) {
     setlocale(LC_ALL, "Russian");
     SetConsoleCP(1251);
-    cout << "\n..........Меню создания пользователя..........\n";
-    cout << "Варианты создания имени пользователя:\n1. Самостоятельно\n2. С помощью генерации имен\n3. Выход\n";
+    cout << "\n..........Меню регистрации.........." << endl;
+    cout << "Варианты создания имени пользователя:\n1. Самостоятельно\n2. С помощью генерации имен\n3. Выход в меню" << endl;
     int choice;
     cout << "Выберите удобный вам вариант: ";
     cin >> choice;
@@ -134,12 +133,11 @@ void user::displayRegistrationMenu(vector<user>& users) {
     case 3:
         return;
     default:
-        cout << "Неверный выбор!\n";
+        cout << "Неверный выбор!" << endl;
         return;
     }
 
-    cout << "Создайте пароль\n";
-    cout << "Варианты создания пароля:\n1. Самостоятельно\n2. С помощью генерации пароля\n";
+    cout << "Варианты создания пароля:\n1. Самостоятельно\n2. С помощью генерации пароля" << endl;
     int choice1;
     cout << "Выберите удобный вам вариант: ";
     cin >> choice1;
@@ -151,7 +149,7 @@ void user::displayRegistrationMenu(vector<user>& users) {
         userPassword = createUserPasswordByGenerating();
         break;
     default:
-        cout << "Неверный выбор!\n";
+        cout << "Неверный выбор!" << endl;
         return;
     }
 
@@ -173,10 +171,10 @@ void user::handleUserChoice(int choice, vector<user>& users) {
         displayUserInfo(users);
         break;
     case 4:
-        cout << "Выход из программы.\n";
-        exit(0); // Завершение программы
+        cout << "Выход из программы." << endl;
+        exit(0);
     default:
-        cout << "Неверный выбор. Пожалуйста, выберите снова.\n";
+        cout << "Неверный выбор. Пожалуйста, выберите снова." << endl;
         break;
     }
 }
