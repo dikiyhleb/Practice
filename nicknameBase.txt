@@ -1,4 +1,4 @@
-Light Soul
+Light_Soul
 rushenkel
 Shooter
 Skapura
@@ -37,7 +37,7 @@ Ornellas
 Dizahn
 Baldon
 Fenridal
-Head$hoTuku 0T AwoTuka
+Head$hoTuku_0T_AwoTuka
 (((((KOT)))))
 StAlexeya
 GotFace~
@@ -65,12 +65,12 @@ Fekree
 pa3BJlekal-0cb_TyTa
 NSiS|Santa
 MasterJek
-Elthins Horde
+Elthins_Horde
 Cashoutmaster
 PASHA
 ILUSHENKA
 Eric
-Hyper best
+Hyper_best
 Janell
 Dante
 CTpouHa9l_MuJlaLLlka
