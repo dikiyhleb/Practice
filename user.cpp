@@ -1,9 +1,12 @@
+
 #include "user.h"
 #include "generationNickname.h"
 #include "generationPassword.h"
+#include "encryption.h"
 using namespace std;
 
 user::user() {}
+
 
 user::user(const string& userNickname, const string& userPassword) {
     this->userNickname = userNickname;
@@ -11,8 +14,6 @@ user::user(const string& userNickname, const string& userPassword) {
 }
 
 string user::createUserNicknameByYourself() {
-    setlocale(LC_ALL, "Russian");
-    SetConsoleCP(1251);
     string userNickname;
     cout << "Введите имя пользователя на английском языке: ";
     cin >> userNickname;
@@ -25,8 +26,6 @@ string user::createUserNicknameByYourself() {
 }
 
 string user::createUserNicknameByGenerating() {
-    setlocale(LC_ALL, "Russian");
-    SetConsoleCP(1251);
     string userNickname;
     cout << "Варианты имени:" << endl;
     string nick1 = genNicknameByBase();
@@ -56,26 +55,22 @@ string user::createUserNicknameByGenerating() {
 }
 
 string user::createUserPasswordByYourself() {
-    setlocale(LC_ALL, "Russian");
-    SetConsoleCP(1251);
     string userPassword;
     cout << "Придумайте пароль: ";
     cin >> userPassword;
+    userPassword = encrypt(userPassword);
     return userPassword;
 }
 
 string user::createUserPasswordByGenerating() {
-    setlocale(LC_ALL, "Russian");
-    SetConsoleCP(1251);
     generationPassword genPass;
     string userPassword = genPass.generate();
     cout << "Пароль: " << userPassword << endl;
+    userPassword = encrypt(userPassword);
     return userPassword;
 }
 
 void user::displayUserInfo(vector<user>& users) {
-    setlocale(LC_ALL, "Russian");
-    SetConsoleCP(1251);
     cout << "\nСписок пользователей:" << endl;
     for (const user& User : users) {
         cout << "Имя пользователя: " << User.userNickname << endl;
@@ -84,8 +79,6 @@ void user::displayUserInfo(vector<user>& users) {
 }
 
 void user::displayAuthMenu(vector<user>& users) {
-    setlocale(LC_ALL, "Russian");
-    SetConsoleCP(1251);
     string nickname, password;
     cout << "\n..........Меню авторизации.........." << endl;
     cout << "Имя пользователя: ";
@@ -98,8 +91,7 @@ void user::displayAuthMenu(vector<user>& users) {
             userFound = true;
             cout << "Пароль: ";
             cin >> password;
-
-            if (User.userPassword == password) {
+            if (decrypt(User.userPassword) == password) {
                 cout << "Вход выполнен. Добро пожаловать, " << User.userNickname << "!\n" << endl;;
             }
             else {
@@ -115,8 +107,6 @@ void user::displayAuthMenu(vector<user>& users) {
 }
 
 void user::displayRegistrationMenu(vector<user>& users) {
-    setlocale(LC_ALL, "Russian");
-    SetConsoleCP(1251);
     cout << "\n..........Меню регистрации.........." << endl;
     cout << "Варианты создания имени пользователя:\n1. Самостоятельно\n2. С помощью генерации имен\n3. Выход в меню" << endl;
     int choice;
@@ -158,8 +148,6 @@ void user::displayRegistrationMenu(vector<user>& users) {
 }
 
 void user::handleUserChoice(int choice, vector<user>& users) {
-    setlocale(LC_ALL, "Russian");
-    SetConsoleCP(1251);
     switch (choice) {
     case 1:
         displayRegistrationMenu(users);
